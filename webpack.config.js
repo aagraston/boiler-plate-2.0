@@ -2,16 +2,20 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  mode: 'devlopment',
+  mode: 'development',
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
+  devtool: 'eval',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Your Title Here',
+      template: './src/template.html',
+      filename: './index.html',
+      inject: true,
     }),
   ],
   module: {
